@@ -8,10 +8,10 @@ var express = require('express'),
 app.set('views', 'views');
 app.set('view engine', 'jade');
 
-app.get('/', function(req, res) {
-    res.render('home', {
+app.get('/fail', function(req, res) {
+    res.render('homee', {
   });
 });
 
-app.listen(8080);
+app.listen(3000);
 module.exports.getApp = app;
