@@ -14,6 +14,6 @@ COPY . /src
 # Install app and dependencies into /src
 RUN cd /src; npm install
 
-EXPOSE 8000
+EXPOSE 3000
 
 CMD cd /src && node ./app.js
