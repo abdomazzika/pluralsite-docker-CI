@@ -1,6 +1,6 @@
 FROM centos:centos6
 
-MAINTAINER nigelpoulton@hotmail.com
+MAINTAINER abdullrahman.ewais@vodafone.com
 
 # Enable EPEL for Node.js
 RUN rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
@@ -12,8 +12,13 @@ RUN yum install -y npm
 COPY . /src
 
 # Install app and dependencies into /src
-RUN cd /src; npm install; node_modules/mocha/bin/mocha test
+RUN cd /src; npm install
 
+# Test the code
+RUN cd /src; node_modules/mocha/bin/mocha test
+
+# Open the port in container
 EXPOSE 3000
 
+# Starting the app
 CMD cd /src && node ./app.js
